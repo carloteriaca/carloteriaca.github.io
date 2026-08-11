@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+  DIARIO DI BORDO — come si aggiunge una settimana:
+  1) copia tutto il blocco <article class="entry"> ... </article>
+  2) incollalo SUBITO SOTTO il commento "INSERISCI QUI LA SETTIMANA NUOVA"
+     (la più recente sta sempre in alto)
+  3) cambia numero settimana, date, elenco "previsto", elenco "fatto" e la lezione
+  Glifi: [ ] da fare · [x] fatto · [~] a metà · [>] rimandato · [+] non previsto ma fatto
+  Ricordati di aggiornare anche il riquadro "Settimana in corso" nella home.
+-->
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diario di bordo — Carlo Teriaca</title>
+<meta name="description" content="Settimana per settimana: cosa avevo previsto di fare, cosa ho fatto davvero, cosa ho imparato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="index.html">Carlo Teriaca</a>
+    <nav class="nav" aria-label="Principale">
+      <a href="progetti.html">Progetti</a>
+      <a href="archivio.html">Archivio</a>
+      <a href="diario.html" aria-current="page">Diario di bordo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap hero">
+    <div class="rise" style="max-width: var(--prose)">
+      <p class="label">Diario di bordo</p>
+      <h1>Cosa avevo previsto. Cosa è successo davvero.</h1>
+      <p class="lead">Ogni lunedì scrivo cosa ho intenzione di fare nei sette giorni successivi. La domenica torno qui e segno cosa ho fatto per davvero, cosa è slittato e cosa ho imparato facendolo.</p>
+      <p>Tengo le due colonne una accanto all'altra apposta. <span class="mark">Un piano che si avvera sempre è un piano poco ambizioso</span>, e uno che non si avvera mai è una bugia che racconto a me stesso: la verità sta nella distanza fra le due colonne, e quella distanza voglio vederla.</p>
+    </div>
+  </section>
+
+  <section class="wrap band">
+    <div class="band__head"><h2 class="label">Le settimane</h2></div>
+
+    <!-- ===== INSERISCI QUI LA SETTIMANA NUOVA ===== -->
+
+    <article class="entry">
+      <div class="entry__head">
+        <span class="entry__num">S01</span>
+        <span class="label">3 — 9 agosto 2026</span>
+        <span class="label"><span class="mark">In corso</span></span>
+      </div>
+
+      <div class="entry__cols">
+
+        <div class="col">
+          <span class="label col__label">Previsto — scritto lunedì</span>
+          <ul>
+            <li><span class="glyph" aria-hidden="true">[x]</span><span><span class="sr-only">Fatto: </span>Pubblicare il primo video, un'infarinatura generale sull'inflazione</span></li>
+            <li><span class="glyph" aria-hidden="true">[~]</span><span><span class="sr-only">A metà: </span>Chiudere la scaletta del video sugli abbonamenti dimenticati</span></li>
+            <li><span class="glyph" aria-hidden="true">[ ]</span><span><span class="sr-only">Da fare: </span>Far funzionare il calcolo della rata del mutuo nell'app</span></li>
+            <li><span class="glyph" aria-hidden="true">[ ]</span><span><span class="sr-only">Da fare: </span>Mettere online la prima versione di questo sito</span></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <span class="label col__label">Fatto — scritto domenica</span>
+          <p class="muted">Il resoconto arriva a fine settimana.</p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ESEMPIO di settimana chiusa: ti fa vedere come si compila il resoconto.
+         Cancellalo quando avrai settimane vere da mettere al suo posto. -->
+    <article class="entry">
+      <div class="entry__head">
+        <span class="entry__num">S00</span>
+        <span class="label">27 luglio — 2 agosto 2026</span>
+        <span class="label">Chiusa</span>
+      </div>
+
+      <div class="entry__cols">
+
+        <div class="col">
+          <span class="label col__label">Previsto</span>
+          <ul>
+            <li><span class="glyph" aria-hidden="true">[x]</span><span><span class="sr-only">Fatto: </span>Girare e montare il video sull'inflazione</span></li>
+            <li><span class="glyph" aria-hidden="true">[&gt;]</span><span><span class="sr-only">Rimandato: </span>Impostare il progetto Swift del calcolatore</span></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <span class="label col__label">Fatto</span>
+          <ul>
+            <li><span class="glyph glyph--done" aria-hidden="true">[x]</span><span><span class="sr-only">Fatto: </span>Video girato e montato, pronto per la pubblicazione</span></li>
+            <li><span class="glyph glyph--done" aria-hidden="true">[+]</span><span><span class="sr-only">Fatto in più: </span>Deciso la struttura di questo sito, cosa che non era in programma</span></li>
+          </ul>
+          <div class="lesson">
+            <span class="label col__label">Cosa ho imparato</span>
+            <p>Il montaggio mi ha portato via il triplo del tempo previsto, quindi il progetto Swift è slittato. La lezione non è "sii più veloce": è che nella stessa settimana non posso mettere una prima volta assoluta e un'altra attività lunga, perché la prima volta costa sempre più di quanto stimo.</p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="label">Carlo Teriaca</span>
+    <span class="label"><a href="https://www.youtube.com/@carloteriaca_economia">YouTube</a> · <a href="mailto:info@carloteriaca.com">Scrivimi</a></span>
+    <span class="label">v0.1 — cantiere aperto</span>
+  </div>
+</footer>
+
+</body>
+</html>

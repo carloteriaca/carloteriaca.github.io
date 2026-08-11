@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+  HOME — cosa cambiare qui:
+  1) "Carlo Teriaca"  -> il tuo nome (compare nel titolo, nella barra e nel footer)
+  2) "info@carloteriaca.com" -> la tua email
+  3) "https://www.youtube.com/@carloteriaca_economia" -> il link vero del canale
+  4) Il blocco "Settimana in corso": aggiornalo ogni lunedì, è lo stesso testo
+     che metti anche in diario.html
+  Per la versione inglese: duplica tutta la cartella in /en/ e traduci.
+-->
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carlo Teriaca — economia, app, lavori in corso</title>
+<meta name="description" content="Canale di economia divulgativa, app iOS in Swift e un diario settimanale di quello che sto costruendo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="index.html">Carlo Teriaca</a>
+    <nav class="nav" aria-label="Principale">
+      <a href="progetti.html">Progetti</a>
+      <a href="archivio.html">Archivio</a>
+      <a href="diario.html">Diario di bordo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ APERTURA: MANIFESTO + SETTIMANA IN CORSO ============ -->
+  <section class="wrap hero">
+    <div class="hero__grid">
+
+      <div class="rise">
+        <p class="label">Chi sono, in breve</p>
+        <h1>Studio economia, costruisco app, e racconto tutto mentre succede.</h1>
+        <p class="lead">Sto portando avanti tre cose in parallelo: un canale di economia divulgativa in italiano, app iOS scritte in Swift, e la competenza necessaria a fare le prime due meglio di ieri.</p>
+        <p>Il metodo è sempre lo stesso. Prendo un argomento complicato, lo smonto finché non lo capisco davvero, e lo rimonto in una forma utilizzabile. Non mi interessa spiegare cosa succede: mi interessa che chi ascolta esca capace di decidere.</p>
+        <p>Pubblico all'ottanta per cento di qualità e correggo in corsa. Ogni settimana scrivo cosa ho intenzione di fare e, sette giorni dopo, cosa ho fatto davvero. <span class="mark">La distanza fra le due cose è la parte interessante</span>, ed è pubblica qui sotto.</p>
+      </div>
+
+      <!-- Aggiorna questo riquadro ogni lunedì. Glifi disponibili:
+           [ ] da fare   [x] fatto   [~] a metà   [>] rimandato -->
+      <aside class="ledger rise rise--late" aria-labelledby="settimana">
+        <div class="ledger__head">
+          <div>
+            <p class="label">Settimana in corso</p>
+            <span class="ledger__week" id="settimana">S01</span>
+          </div>
+          <span class="label">3 — 9 ago 2026</span>
+        </div>
+
+        <ul class="ledger__list">
+          <li><span class="glyph" aria-hidden="true">[x]</span><span><span class="sr-only">Fatto: </span>Pubblicato il primo video sull'inflazione</span></li>
+          <li><span class="glyph" aria-hidden="true">[~]</span><span><span class="sr-only">A metà: </span>Scaletta del video sugli abbonamenti dimenticati</span></li>
+          <li><span class="glyph" aria-hidden="true">[ ]</span><span><span class="sr-only">Da fare: </span>Calcolo della rata del mutuo dentro l'app in Swift</span></li>
+          <li><span class="glyph" aria-hidden="true">[ ]</span><span><span class="sr-only">Da fare: </span>Prima versione online di questo sito</span></li>
+        </ul>
+
+        <div class="ledger__foot">
+          <a href="diario.html">Tutte le settimane, con i resoconti →</a>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ============ PROGETTI ============ -->
+  <section class="wrap band">
+    <div class="band__head"><h2 class="label">Progetti</h2></div>
+
+    <article class="project">
+      <div class="project__meta">
+        <span class="label">Canale YouTube</span>
+        <span class="label">Attivo</span>
+      </div>
+      <h3>Economia spiegata per farci qualcosa</h3>
+      <p>Video in italiano su come funzionano davvero i soldi, il lavoro, i prezzi e le scelte che ci girano intorno. Tre tipi di puntata: concetti tecnici spiegati in profondità, temi quotidiani con un'idea vera dentro, e domande scomode sulla società in cui viviamo, con i dati alla mano.</p>
+      <a class="project__link" href="https://www.youtube.com/@carloteriaca_economia">Guarda il canale →</a>
+    </article>
+
+    <article class="project">
+      <div class="project__meta">
+        <span class="label">App iOS</span>
+        <span class="label">In sviluppo</span>
+      </div>
+      <h3>Strumenti finanziari in Swift</h3>
+      <p>App che fanno una cosa sola e la fanno bene. La prima è un calcolatore finanziario: interesse composto, rata del mutuo, e cosa succede davvero ai tuoi numeri quando cambi un parametro. Sviluppate in inglese per l'App Store globale, con versione italiana.</p>
+      <a class="project__link" href="progetti.html">Cosa sto costruendo →</a>
+    </article>
+  </section>
+
+  <!-- ============ ARCHIVIO ============ -->
+  <section class="wrap band">
+    <div class="band__head"><h2 class="label">Archivio</h2></div>
+    <p class="lead">Presentazioni, fotografie e lavori di design. Roba finita, roba vecchia, roba a cui tengo: sta tutta lì dentro, in ordine sparso ma consultabile.</p>
+    <p><a class="project__link" href="archivio.html">Apri l'archivio →</a></p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="label">Carlo Teriaca</span>
+    <span class="label"><a href="https://www.youtube.com/@carloteriaca_economia">YouTube</a> · <a href="mailto:info@carloteriaca.com">Scrivimi</a></span>
+    <span class="label">v0.1 — cantiere aperto</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+  ARCHIVIO — come si aggiunge un lavoro:
+  1) metti il file in assets/pdf/ (documenti) o assets/img/ (immagini)
+  2) copia un blocco <a class="card"> ... </a> intero e incollalo dove vuoi
+  3) cambia: href, tipo (PDF/JPG/PNG), anno, titolo, descrizione
+  4) per l'anteprima vera, sostituisci <span class="thumb__type">…</span>
+     con <img src="assets/img/nome-anteprima.jpg" alt="descrizione dell'immagine">
+  Le anteprime senza immagine restano un riquadro rigato: è voluto, non è un errore.
+-->
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archivio — Carlo Teriaca</title>
+<meta name="description" content="Presentazioni, fotografie e lavori di design raccolti in un unico posto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="index.html">Carlo Teriaca</a>
+    <nav class="nav" aria-label="Principale">
+      <a href="progetti.html">Progetti</a>
+      <a href="archivio.html" aria-current="page">Archivio</a>
+      <a href="diario.html">Diario di bordo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap hero">
+    <div class="rise" style="max-width: var(--prose)">
+      <p class="label">Archivio</p>
+      <h1>Lavori finiti, in ordine sparso.</h1>
+      <p class="lead">Presentazioni, fotografie, progetti di design. Non è un portfolio selezionato con il bilancino: è il magazzino di quello che ho fatto, aperto al pubblico. Alcune cose sono buone, altre servono a far vedere da dove sono partito.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRESENTAZIONI ============ -->
+  <section class="wrap band">
+    <div class="band__head"><h2 class="label">Presentazioni</h2></div>
+
+    <div class="grid">
+
+      <a class="card" href="assets/pdf/esempio-presentazione.pdf">
+        <span class="thumb">
+          <span class="thumb__type">PDF</span>
+          <!-- <img src="assets/img/esempio-anteprima.jpg" alt="Prima pagina della presentazione"> -->
+        </span>
+        <span class="card__meta">
+          <span class="label">2026</span>
+          <span class="label">14 pagine</span>
+        </span>
+        <span class="card__title">Titolo della presentazione</span>
+        <span class="card__desc">Una riga per dire di cosa parla e perché l'hai fatta.</span>
+      </a>
+
+      <a class="card" href="assets/pdf/esempio-presentazione-2.pdf">
+        <span class="thumb">
+          <span class="thumb__type">PDF</span>
+        </span>
+        <span class="card__meta">
+          <span class="label">2025</span>
+          <span class="label">22 pagine</span>
+        </span>
+        <span class="card__title">Secondo lavoro</span>
+        <span class="card__desc">Sostituisci questa scheda con la prima cosa vera che carichi.</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ FOTOGRAFIA ============ -->
+  <section class="wrap band">
+    <div class="band__head"><h2 class="label">Fotografia</h2></div>
+
+    <div class="grid">
+
+      <a class="card" href="assets/img/esempio-foto.jpg">
+        <span class="thumb">
+          <span class="thumb__type">JPG</span>
+        </span>
+        <span class="card__meta">
+          <span class="label">2026</span>
+        </span>
+        <span class="card__title">Titolo della serie</span>
+        <span class="card__desc">Dove, quando, e cosa stavi cercando di ottenere.</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ DESIGN ============ -->
+  <section class="wrap band">
+    <div class="band__head"><h2 class="label">Design</h2></div>
+
+    <div class="empty">
+      Ancora niente qui dentro. I lavori di design arrivano appena ne carico il primo.
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="label">Carlo Teriaca</span>
+    <span class="label"><a href="https://www.youtube.com/@carloteriaca_economia">YouTube</a> · <a href="mailto:info@carloteriaca.com">Scrivimi</a></span>
+    <span class="label">v0.1 — cantiere aperto</span>
+  </div>
+</footer>
+
+</body>
+</html>

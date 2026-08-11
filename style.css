@@ -1,0 +1,377 @@
+/* =========================================================
+   FOGLIO DI STILE UNICO — vale per tutte le pagine del sito.
+   Struttura del file:
+   1. Token (colori, misure)      2. Reset e base
+   3. Tipografia                  4. Barra di navigazione
+   5. Impaginazione e sezioni     6. Registro settimanale
+   7. Progetti                    8. Archivio
+   9. Diario di bordo            10. Footer
+   11. Responsive                12. Accessibilità e movimento
+   ========================================================= */
+
+/* ---------- 1. TOKEN ---------- */
+:root {
+  --paper:      #EEEFF1;   /* fondo: grigio carta freddo */
+  --paper-card: #F8F9FA;   /* fondo dei riquadri */
+  --ink:        #14161C;   /* testo principale */
+  --ink-soft:   #5A616E;   /* testo secondario */
+  --rule:       #D3D6DC;   /* linee di separazione */
+  --blue:       #1D3BB8;   /* colore dei link e degli accenti */
+  --mark:       #F2E14C;   /* evidenziatore: solo per "in corso" */
+
+  --wrap:       1080px;
+  --prose:      62ch;      /* riga corta: si legge meglio */
+  --radius:     4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:      #101319;
+    --paper-card: #171B23;
+    --ink:        #E8EAEE;
+    --ink-soft:   #98A0AE;
+    --rule:       #2A3040;
+    --blue:       #8AA2FF;
+    --mark:       #F2E14C;
+  }
+}
+
+/* ---------- 2. RESET E BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  text-align: left;          /* mai testo giustificato */
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; height: auto; }
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1.5px solid color-mix(in srgb, var(--blue) 35%, transparent);
+  transition: border-color .18s ease, color .18s ease;
+}
+a:hover { border-bottom-color: var(--blue); }
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- 3. TIPOGRAFIA ---------- */
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 .5em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
+
+p { margin: 0 0 1.1em; max-width: var(--prose); }
+p:last-child { margin-bottom: 0; }
+
+.lead { font-size: 1.12rem; }
+.muted { color: var(--ink-soft); }
+
+/* etichette, date, numeri: tutto in monospazio */
+.label {
+  font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: .74rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* evidenziatore: usato SOLO per ciò che è in corso adesso */
+.mark {
+  background: linear-gradient(to top, var(--mark) 0%, var(--mark) 42%, transparent 42%);
+  padding: 0 .12em;
+}
+@media (prefers-color-scheme: dark) {
+  .mark { background: none; box-shadow: inset 0 -2px 0 var(--mark); }
+}
+
+/* ---------- 4. BARRA DI NAVIGAZIONE ---------- */
+.topbar {
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.topbar__inner {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: .85rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.4rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.brand {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .84rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: none;
+}
+.brand:hover { color: var(--blue); }
+
+.nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+.nav a {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1.5px solid transparent;
+  padding-bottom: 2px;
+}
+.nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+.nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--blue); }
+
+/* ---------- 5. IMPAGINAZIONE E SEZIONI ---------- */
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
+
+.band { padding: 3.4rem 0; border-top: 1px solid var(--rule); }
+.band:first-of-type { border-top: none; }
+.band__head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.band__head .label { white-space: nowrap; margin: 0; }
+.band__head h2 { margin: 0; }
+.band__head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.hero { padding: 4rem 0 3.4rem; }
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+.hero h1 { margin-bottom: .8rem; }
+
+/* ---------- 6. REGISTRO SETTIMANALE (elemento firma) ---------- */
+.ledger {
+  background: var(--paper-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+.ledger__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .8rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+.ledger__head p { margin: 0 0 .15rem; }
+.ledger__week {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.ledger__list { list-style: none; margin: 0; padding: 0; }
+.ledger__list li {
+  display: flex;
+  gap: .7rem;
+  padding: .42rem 0;
+  line-height: 1.55;
+  font-size: .97rem;
+}
+.glyph {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .9rem;
+  color: var(--ink-soft);
+  flex: none;
+  padding-top: .1rem;
+}
+.glyph--done { color: var(--blue); font-weight: 600; }
+.ledger__foot { margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--rule); }
+
+/* ---------- 7. PROGETTI ---------- */
+.project { padding: 1.8rem 0; border-top: 1px solid var(--rule); }
+.project:first-of-type { border-top: none; padding-top: 0; }
+.project__meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.project h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: .45rem; }
+.project__link {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: .5rem;
+}
+
+/* ---------- 8. ARCHIVIO ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.6rem;
+}
+.card { border-bottom: none; display: block; color: var(--ink); }
+.card:hover .thumb { border-color: var(--blue); }
+.card:hover .card__title { color: var(--blue); }
+.thumb {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper-card);
+  background-image:
+    repeating-linear-gradient(135deg, var(--rule) 0 1px, transparent 1px 11px);
+  display: flex;
+  align-items: flex-end;
+  padding: .7rem;
+  overflow: hidden;
+  transition: border-color .18s ease;
+}
+.thumb:has(img) { padding: 0; align-items: stretch; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb__type {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: .1rem .4rem;
+  color: var(--ink-soft);
+}
+.card__meta { margin: .7rem 0 .15rem; display: flex; gap: .8rem; }
+.card__title { display: block; font-weight: 700; line-height: 1.3; transition: color .18s ease; }
+.card__desc { display: block; font-size: .92rem; color: var(--ink-soft); line-height: 1.5; margin-top: .2rem; }
+
+.empty {
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  color: var(--ink-soft);
+  font-size: .95rem;
+}
+
+/* ---------- 9. DIARIO DI BORDO ---------- */
+.entry { padding: 2.4rem 0; border-top: 1px solid var(--rule); }
+.entry:first-of-type { border-top: none; padding-top: .5rem; }
+.entry__head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+.entry__num {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.entry__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4rem;
+}
+.col__label { display: block; margin-bottom: .8rem; }
+.col ul { list-style: none; margin: 0; padding: 0; }
+.col li {
+  display: flex;
+  gap: .7rem;
+  padding: .42rem 0;
+  font-size: .97rem;
+  line-height: 1.55;
+}
+.col p { font-size: .97rem; }
+.lesson {
+  border-left: 2px solid var(--blue);
+  padding-left: 1rem;
+  margin-top: 1.2rem;
+}
+
+/* ---------- 10. FOOTER ---------- */
+.footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+  padding: 2.2rem 0 3rem;
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.footer a { color: var(--ink-soft); border-bottom-color: var(--rule); }
+.footer a:hover { color: var(--blue); }
+
+/* ---------- 11. RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .hero__grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .entry__cols { grid-template-columns: 1fr; gap: 1.8rem; }
+}
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .hero { padding: 2.6rem 0 2.2rem; }
+  .band { padding: 2.6rem 0; }
+  .topbar__inner { padding: .75rem 1.2rem; }
+  .wrap { padding: 0 1.2rem; }
+  .nav { gap: 1rem; }
+}
+
+/* ---------- 12. ACCESSIBILITÀ E MOVIMENTO ---------- */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--ink); color: var(--paper);
+  padding: .6rem 1rem; z-index: 100; border: none;
+}
+.skip:focus { left: 1rem; top: .6rem; }
+
+.rise { animation: rise .5s cubic-bezier(.2,.7,.3,1) backwards; }
+.rise--late { animation-delay: .09s; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
