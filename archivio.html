@@ -1,22 +1,13 @@
 <!DOCTYPE html>
-<!--
-  ARCHIVIO — come si aggiunge un lavoro:
-  1) metti il file in assets/pdf/ (documenti) o assets/img/ (immagini)
-  2) copia un blocco <a class="card"> ... </a> intero e incollalo dove vuoi
-  3) cambia: href, tipo (PDF/JPG/PNG), anno, titolo, descrizione
-  4) per l'anteprima vera, sostituisci <span class="thumb__type">…</span>
-     con <img src="assets/img/nome-anteprima.jpg" alt="descrizione dell'immagine">
-  Le anteprime senza immagine restano un riquadro rigato: è voluto, non è un errore.
--->
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Archivio — Carlo Teriaca</title>
-<meta name="description" content="Presentazioni, fotografie e lavori di design raccolti in un unico posto.">
+<meta name="description" content="Archivio dei lavori di Carlo Teriaca, ordinati per anno e per area.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,98 +15,88 @@
 <a class="skip" href="#main">Vai al contenuto</a>
 
 <header class="topbar">
-  <div class="topbar__inner">
-    <a class="brand" href="index.html">Carlo Teriaca</a>
+  <div class="wrap topbar__inner">
+    <span class="brand">Carlo Teriaca</span>
     <nav class="nav" aria-label="Principale">
-      <a href="progetti.html">Progetti</a>
+      <a href="index.html">Chi sono</a>
       <a href="archivio.html" aria-current="page">Archivio</a>
-      <a href="diario.html">Diario di bordo</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
+  <div class="wrap">
 
-  <section class="wrap hero">
-    <div class="rise" style="max-width: var(--prose)">
-      <p class="label">Archivio</p>
-      <h1>Lavori finiti, in ordine sparso.</h1>
-      <p class="lead">Presentazioni, fotografie, progetti di design. Non è un portfolio selezionato con il bilancino: è il magazzino di quello che ho fatto, aperto al pubblico. Alcune cose sono buone, altre servono a far vedere da dove sono partito.</p>
-    </div>
-  </section>
+    <header class="page-head">
+      <p class="label">Lavori conclusi</p>
+      <h1>Archivio</h1>
+      <p>I lavori finiti. Scegli l'anno, poi la raccolta.</p>
+    </header>
 
-  <!-- ============ PRESENTAZIONI ============ -->
-  <section class="wrap band">
-    <div class="band__head"><h2 class="label">Presentazioni</h2></div>
+    <!-- I pulsanti degli anni si creano da soli, uno per ogni <section class="year">. -->
+    <div class="years" role="group" aria-label="Scegli l'anno" id="anni"></div>
 
-    <div class="grid">
+    <!-- =================================================================
+         COME FUNZIONA
+         Anno, poi raccolte, poi lavori.
+         Nuovo anno:     copia un blocco <section class="year"> e cambia data-year.
+                         Metti gli anni dal più recente al più vecchio.
+         Nuova raccolta: dentro l'anno copia un blocco <a class="card">
+                         e crea la sua pagina nella cartella archivio/
+                         (copia isia-design-del-prodotto-2.html).
+         ================================================================= -->
 
-      <a class="card" href="assets/pdf/esempio-presentazione.pdf">
-        <span class="thumb">
-          <span class="thumb__type">PDF</span>
-          <!-- <img src="assets/img/esempio-anteprima.jpg" alt="Prima pagina della presentazione"> -->
-        </span>
-        <span class="card__meta">
-          <span class="label">2026</span>
-          <span class="label">14 pagine</span>
-        </span>
-        <span class="card__title">Titolo della presentazione</span>
-        <span class="card__desc">Una riga per dire di cosa parla e perché l'hai fatta.</span>
-      </a>
+    <section class="year" data-year="2026" aria-label="2026">
+      <div class="grid grid--2">
+        <a class="card" href="archivio/isia-design-del-prodotto-2.html">
+          <div class="card__media"><img src="assets/archivio/anteprime/archicubo.jpg" alt="" loading="lazy"></div>
+          <div class="card__body">
+            <p class="label">ISIA Roma</p>
+            <h3>Design del Prodotto, anno 2</h3>
+            <p>3 lavori: teoria della forma, comunicazione visiva, semiotica per il design.</p>
+            <span class="card__cta">Apri la raccolta →</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
-      <a class="card" href="assets/pdf/esempio-presentazione-2.pdf">
-        <span class="thumb">
-          <span class="thumb__type">PDF</span>
-        </span>
-        <span class="card__meta">
-          <span class="label">2025</span>
-          <span class="label">22 pagine</span>
-        </span>
-        <span class="card__title">Secondo lavoro</span>
-        <span class="card__desc">Sostituisci questa scheda con la prima cosa vera che carichi.</span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ============ FOTOGRAFIA ============ -->
-  <section class="wrap band">
-    <div class="band__head"><h2 class="label">Fotografia</h2></div>
-
-    <div class="grid">
-
-      <a class="card" href="assets/img/esempio-foto.jpg">
-        <span class="thumb">
-          <span class="thumb__type">JPG</span>
-        </span>
-        <span class="card__meta">
-          <span class="label">2026</span>
-        </span>
-        <span class="card__title">Titolo della serie</span>
-        <span class="card__desc">Dove, quando, e cosa stavi cercando di ottenere.</span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ============ DESIGN ============ -->
-  <section class="wrap band">
-    <div class="band__head"><h2 class="label">Design</h2></div>
-
-    <div class="empty">
-      Ancora niente qui dentro. I lavori di design arrivano appena ne carico il primo.
-    </div>
-  </section>
-
+  </div>
 </main>
 
 <footer class="footer">
   <div class="wrap footer__inner">
-    <span class="label">Carlo Teriaca</span>
-    <span class="label"><a href="https://www.youtube.com/@carloteriaca_economia">YouTube</a> · <a href="mailto:info@carloteriaca.com">Scrivimi</a></span>
-    <span class="label">v0.1 — cantiere aperto</span>
+    <span>Carlo Teriaca</span>
+    <nav aria-label="Canali">
+      <a href="https://www.youtube.com/@carloteriaca_economia">YouTube · Economia</a>
+      <!-- <a href="LINK_CANALE_EDITOR">YouTube · Editing</a> -->
+    </nav>
   </div>
 </footer>
+
+<script>
+  // Crea un pulsante per ogni anno e mostra un anno alla volta.
+  // Senza JavaScript tutti gli anni restano visibili, uno sotto l'altro.
+  (function () {
+    var years = Array.prototype.slice.call(document.querySelectorAll('.year'));
+    var bar = document.getElementById('anni');
+    if (!years.length || !bar) return;
+    function show(y) {
+      years.forEach(function (s) { s.hidden = s.dataset.year !== y; });
+      Array.prototype.forEach.call(bar.children, function (b) {
+        b.setAttribute('aria-pressed', b.dataset.year === y ? 'true' : 'false');
+      });
+    }
+    years.forEach(function (s) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = s.dataset.year;
+      b.dataset.year = s.dataset.year;
+      b.addEventListener('click', function () { show(s.dataset.year); });
+      bar.appendChild(b);
+    });
+    show(years[0].dataset.year);
+  })();
+</script>
 
 </body>
 </html>
